@@ -87,7 +87,7 @@ and *you have to list the fields in the same order as the record definition*.
 The first point is generally not a problem until you reach 10 fields, because
 there is no `decode10` function. The second point is a bigger problem.
 When developing, it is very common to modify existing records (add/remove fields).
-When you do this, it is very easy to mess up the order int the decoder. And if the
+When you do this, it is very easy to mess up the order in the decoder. And if the
 two fields you swapped are both strings, the compiler will not catch this mistake.
 **You will end up with bad data in your application**.
 
@@ -138,7 +138,7 @@ invocation**. To return errors for all fields at once, we need to continue
 decoding even after the first error. *But what will be in the `name` variable
 if the `name` field failed to decode?* The answer is a default string value
 (empty string in this case). So you have to make sure to not perform any
-side effects in the decoder, because withing the decoder function you are never
+side effects in the decoder, because within the decoder function you are never
 guaranteed that the data is actually valid.
 
 ```gleam
@@ -154,7 +154,7 @@ pub fn user_decoder_toy() {
 ```
 
 This is not as scary as it seems. When you are using toy and decode a value with
-it, you will always get valid data. The rule only applies withing the decoder
+it, you will always get valid data. The rule only applies within the decoder
 itself.
 
 And in practice, the rule *don't perform side effects in the decoder* is much
